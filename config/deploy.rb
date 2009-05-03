@@ -21,6 +21,16 @@ namespace :deploy do
   end
 end
 
+namespace :dirtytourney do
+  desc "Adds a symlink for the data directory"
+  task :backups do
+    run "ln -s #{shared_path}/data #{current_path}/data"
+  end
+end
+
+after :deploy, "dirtytourney:backups"
+
+
 namespace :passenger do
   desc "Restart Application"
   task :restart do
