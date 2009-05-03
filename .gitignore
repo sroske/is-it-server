@@ -1,0 +1,4 @@
+log/*
+tmp
+data/development.sqlite3
+data/test.sqlite3
