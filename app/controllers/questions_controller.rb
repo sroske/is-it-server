@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @questions }
-      format.js { render :json => @questions }
+      format.js { render :json => @questions.map{ |q| q.attributes }.to_json(:only => ['question', 'answer']) }
     end
   end
   
