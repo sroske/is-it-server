@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   
-  before_filter :login_required
+  before_filter :login_required, :except => [:random]
   
   # GET /questions/random
   # GET /questions/random.xml
