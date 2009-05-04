@@ -1,2 +1,16 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+Client and Server
+
+1. paging, so we pull 30 questions at a time, when the user reaches 15 questions it will fetch the next 30, we will keep 30 in the history displayed
+2. loading screen, fetches questions before responding with a "YES" to "Is this an App?"
+3. built in questions, so we will have 30ish calculated questions in the app, this is the fall-back plan if no network connectivity
+4. implement ref counting, sort by ref count asc (optional)
+5. last entry should be "is this the last question?" "YES"
+6. the first entry should always be "Is this an App?" "YES"
+
+Server Only
+
+1. screen scrape certain sites (a list, periodically), updates record in the regular db
+2. status on questions (for failed to import, held, etc.)
+3. implement expires_at
+4. add flag_at (if this date is hit, it should flag it in the admin)
+5. on the admin, filters status (failed to import) and/or flag_at items and brings attention to them/brings to the top
