@@ -1,5 +1,9 @@
 <h1>Listing questions</h1>
 
+<%= will_paginate @questions %>
+
+<br />
+
 <table>
   <tr>
 	<th>Question</th>
@@ -18,6 +22,10 @@
   </tr>
 <% end %>
 </table>
+
+<br />
+
+<%= will_paginate @questions %>
 
 <br />
 

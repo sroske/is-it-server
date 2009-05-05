@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   # GET /questions/random.xml
   # GET /questions/random.js
   def random
-    @questions = Question.all(:order => "RANDOM()", :limit => 30)
+    @questions = Question.paginate :page => params[:page], :order => 'RANDOM()'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.xml
   def index
-    @questions = Question.all
+    @questions = Question.paginate :page => params[:page], :order => 'created_at DESC'
 
     respond_to do |format|
       format.html # index.html.erb
