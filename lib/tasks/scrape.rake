@@ -8,9 +8,9 @@ task :scrape => :environment do
     puts "scraping #{scraper.url}"
     
     scraper.scrape!
-    puts "result was #{scraper.last_value} with a status of #{scraper.status}"
+    puts "result was #{scraper.last_value} with a status of #{scraper.last_ran_status}"
     
-    scraper.status == Scraper::Status::SUCCEEDED ? success += 1 : fail += 1
+    scraper.last_ran_status == Scraper::Status::SUCCEEDED ? success += 1 : fail += 1
     count += 1
   end
   
