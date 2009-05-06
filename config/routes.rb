@@ -1,14 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  map.register '/register', :controller => 'users', :action => 'create'
-  map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
-
-  map.resource :session
-
-  map.resources :questions
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -39,12 +29,26 @@ ActionController::Routing::Routes.draw do |map|
   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #     admin.resources :products
   #   end
+
+  # custom admin
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.register '/register', :controller => 'users', :action => 'create'
+  map.signup '/signup', :controller => 'users', :action => 'new'
   
-  map.random 'random', :controller => "questions", :action => "random"
-  map.random_format 'random.:format', :controller => "questions", :action => "random"
+  map.flagged '/questions/flagged', :controller => "questions", :action => "flagged"
+  map.flagged_format '/questions/flagged.:format', :controller => "questions", :action => "flagged"
+  
+  # custom public
+  map.random '/random', :controller => "questions", :action => "random"
+  map.random_format '/random.:format', :controller => "questions", :action => "random"
+  
+  map.resources :users
+  map.resource :session
+  map.resources :questions
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "questions"
+  map.root :controller => "questions", :action => "flagged"
 
   # See how all your routes lay out with "rake routes"
 

@@ -4,10 +4,13 @@
 
 <br />
 
-<table>
+<table cellpadding="3" cellspacing="3">
   <tr>
 	<th>Question</th>
 	<th>Answer</th>
+	<th>Status</th>
+	<th>Expires</th>
+	<th>Flag</th>
 	<td></td>
 	<td></td>
 	<td></td>
@@ -15,8 +18,11 @@
 
 <% @questions.each do |question| %>
   <tr>
-	<td><%= h question.question %></td>
-	<td><%= question.answer ? 'YES' : 'NO' %></td>
+	  <td><%= h question.question %></td>
+	  <td align="center"><%= question.answer ? 'YES' : 'NO' %></td>
+	  <td><%= h question.status.camelize %></td>
+	  <td><%= question.expires_at ? question.expires_at.strftime("%m-%d-%Y") : 'Never' %></td>
+	  <td><%= question.flag_at ? question.flag_at.strftime("%m-%d-%Y") : 'Never' %></td>
     <td><%= link_to 'Edit', edit_question_path(question) %></td>
     <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

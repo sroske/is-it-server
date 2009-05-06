@@ -1,6 +1,20 @@
 <p>
-	<label>Question:</label>
+  <%= f.label :question %>
 	<%= f.text_field :question %>
 </p>
 <p>
-	<label>Answer is yes?</label><%= f.check_box :answer %></p>
+	<%= f.label :answer%>
+	<%= f.check_box :answer %>
+</p>
+<p>
+	<%= f.label :status %>
+	<%= select :question, :status, Question::Status.constants.map{ |c| eval("Question::Status::#{c}") } %>
+</p>
+<p>
+	<%= f.label :flag_at %>
+	<%= f.date_select :flag_at, :include_blank => true %>
+</p>
+<p>
+	<%= f.label :expires_at %>
+	<%= f.date_select :expires_at, :include_blank => true %>
+</p>

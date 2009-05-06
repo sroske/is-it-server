@@ -8,6 +8,11 @@
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
+  
+<ul id="navigation">
+  <li><%= link_to "Flagged", flagged_url %></li>
+  <li><%= link_to "Questions", questions_url %></li>
+</ul>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
