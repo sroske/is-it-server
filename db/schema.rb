@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090506005508) do
+ActiveRecord::Schema.define(:version => 20090506031110) do
 
   create_table "questions", :force => true do |t|
     t.string   "question"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(:version => 20090506005508) do
     t.datetime "updated_at"
     t.datetime "flag_at"
     t.string   "status",     :default => "active"
+  end
+
+  create_table "scrapers", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "url"
+    t.string   "xpath"
+    t.boolean  "last_value"
+    t.datetime "last_ran_at"
+    t.string   "last_ran_status", :default => "unknown"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

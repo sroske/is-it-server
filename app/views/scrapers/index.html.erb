@@ -1,0 +1,35 @@
+<h1>Listing scrapers</h1>
+
+<%= will_paginate @scrapers %>
+
+<table cellpadding="3" cellspacing="3">
+  <tr>
+    <th>Question</th>
+    <th>URL</th>
+    <th>Last Ran At</th>
+    <th>Last Ran Status</th>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+<% @scrapers.each do |scraper| %>
+  <tr>
+    <td><%= h scraper.question.question %></td>
+    <td><%= h scraper.url%></td>
+    <td><%= scraper.last_ran_at ? scraper.last_ran_at.to_s : 'N/A' %></td>
+    <td><%= scraper.last_ran_status.camelize %></td>
+    <td><%= link_to 'Show', scraper %></td>
+    <td><%= link_to 'Edit', edit_scraper_path(scraper) %></td>
+    <td><%= link_to 'Destroy', scraper, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @scrapers %>
+
+<br />
+
+<%= link_to 'New scraper', new_scraper_path %>

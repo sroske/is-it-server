@@ -1,0 +1,21 @@
+<p>
+  Question: <%= h @scraper.question.question %>
+</p>
+<p>
+  URL: <%= h @scraper.url %>
+</p>
+<p>
+  X-Path Expression: <%= h @scraper.xpath %>
+</p>
+<p>
+  Last Value: <%= @scraper.last_value ? 'YES' : 'NO' %>
+</p>
+<p>
+  Last Ran At: <%= @scraper.last_ran_at ? @scraper.last_ran_at.to_s : 'N/A' %>
+</p>
+<p>
+  Last Ran Status: <%= @scraper.last_ran_status.camelize %>
+</p>
+
+<%= link_to 'Edit', edit_scraper_path(@scraper) %> |
+<%= link_to 'Back', scrapers_path %>

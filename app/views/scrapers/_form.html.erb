@@ -1,0 +1,12 @@
+<p>
+  <%= f.label :question %>
+  <%= select(:scraper, :question_id, Question.all.collect{ |q| [ q.question, q.id ] }) %>
+</p>
+<p>
+  <%= f.label :url %>
+	<%= f.text_field :url %>
+</p>
+<p>
+	<%= f.label :xpath %>
+	<%= f.text_field :xpath %>
+</p>

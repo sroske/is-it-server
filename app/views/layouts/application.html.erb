@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Questions: <%= controller.action_name %></title>
+  <title>Is it an Admin?</title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
@@ -12,6 +12,7 @@
 <ul id="navigation">
   <li><%= link_to "Flagged", flagged_url %></li>
   <li><%= link_to "Questions", questions_url %></li>
+  <li><%= link_to "Scrapers", scrapers_url %></li>
 </ul>
 
 <p style="color: green"><%= flash[:notice] %></p>
