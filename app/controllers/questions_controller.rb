@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
   
   before_filter :login_required, :except => [:random]
+  caches_page :random
   
   # GET /questions/flagged
-  # GET /questions/flagged.xml
   def flagged
     @questions = Question.flagged.paginate :page => params[:page], :order => 'flag_at DESC'
 
@@ -13,11 +13,9 @@ class QuestionsController < ApplicationController
     end
   end
   
-  # GET /questions/random
-  # GET /questions/random.xml
-  # GET /questions/random.js
+  # GET /questions/random/:page
   def random
-    @questions = Question.active.paginate :page => params[:page], :order => 'RANDOM()'
+    @questions = Question.active.paginate :page => params[:page], :order => 'created_at desc'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -72,6 +70,9 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         flash[:notice] = 'Question was successfully created.'
+        
+        expire_random
+        
         format.html { redirect_to(questions_url) }
         format.xml  { render :xml => @question, :status => :created, :location => @question }
       else
@@ -89,6 +90,9 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update_attributes(params[:question])
         flash[:notice] = 'Question was successfully updated.'
+        
+        expire_random
+        
         format.html { redirect_to(questions_url) }
         format.xml  { head :ok }
       else
@@ -107,6 +111,15 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(questions_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  protected
+  
+  def expire_random
+    count = Question.count
+    1.upto((count / 30) + 1) do |i|
+      expire_page :controller => :questions, :action => :random, :format => :js, :page => i  
     end
   end
 end

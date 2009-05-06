@@ -30,18 +30,21 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
 
-  # custom admin
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   
   map.flagged '/questions/flagged', :controller => "questions", :action => "flagged"
-  map.flagged_format '/questions/flagged.:format', :controller => "questions", :action => "flagged"
   
-  # custom public
-  map.random '/random', :controller => "questions", :action => "random"
-  map.random_format '/random.:format', :controller => "questions", :action => "random"
+  map.random '/questions/random', :controller => "questions", :action => "random"
+  map.random '/questions/random/:page', :controller => "questions", :action => "random"
+  
+  map.random '/questions/random.:format', :controller => "questions", :action => "random"
+  map.random '/questions/random/:page.:format', :controller => "questions", :action => "random"
+  
+  # deprecated
+  map.random '/random.:format', :controller => "questions", :action => "random"
   
   map.resources :users
   map.resource :session
