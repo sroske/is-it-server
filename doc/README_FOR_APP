@@ -3,9 +3,10 @@ Client and Server
 DONE 1. paging, so we pull 30 questions at a time, when the user reaches 15 questions it will fetch the next 30, we will keep 30 in the history displayed
 DONE 2. loading screen, fetches questions before responding with a "YES" to "Is this an App?"
 3. built in questions, so we will have 30ish calculated questions in the app, this is the fall-back plan if no network connectivity
-4. implement ref counting, sort by ref count asc (optional)
+NOT IMPLEMENTING 4. implement ref counting, sort by ref count asc (optional)
 DONE 5. last entry should be "is this the last question?" "YES"
 DONE 6. the first entry should always be "Is this an App?" "YES"
+7. Make scrolling more efficient (see http://cocoawithlove.com/2009/01/multiple-virtual-pages-in-uiscrollview.html)
 
 Server Only
 
@@ -14,3 +15,4 @@ DONE 2. status on questions (for failed to import, held, etc.)
 DONE 3. implement expires_at
 DONE 4. add flag_at (if this date is hit, it should flag it in the admin)
 DONE 5. on the admin, filters status (failed to import) and/or flag_at items and brings attention to them/brings to the top
+6. Start entering the final data set for sites
