@@ -8,6 +8,7 @@
     <th>URL</th>
     <th>Last Ran At</th>
     <th>Last Ran Status</th>
+    <th>Last Value</th>
     <td></td>
     <td></td>
     <td></td>
@@ -15,10 +16,11 @@
 
 <% @scrapers.each do |scraper| %>
   <tr>
-    <td><%= h scraper.question.question %></td>
+    <td><%= link_to scraper.question.question, question_url(scraper.question) %></td>
     <td><%= h scraper.url%></td>
     <td><%= scraper.last_ran_at ? scraper.last_ran_at.to_s : 'N/A' %></td>
     <td><%= scraper.last_ran_status.camelize %></td>
+    <td><%= scraper.last_value ? 'YES' : 'NO' %></td>
     <td><%= link_to 'Show', scraper %></td>
     <td><%= link_to 'Edit', edit_scraper_path(scraper) %></td>
     <td><%= link_to 'Destroy', scraper, :confirm => 'Are you sure?', :method => :delete %></td>

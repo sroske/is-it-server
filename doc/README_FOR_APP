@@ -9,7 +9,7 @@ DONE 6. the first entry should always be "Is this an App?" "YES"
 
 Server Only
 
-1. screen scrape certain sites (a list, periodically), updates record in the regular db
+DONE 1. screen scrape certain sites (a list, periodically), updates record in the regular db
 DONE 2. status on questions (for failed to import, held, etc.)
 DONE 3. implement expires_at
 DONE 4. add flag_at (if this date is hit, it should flag it in the admin)

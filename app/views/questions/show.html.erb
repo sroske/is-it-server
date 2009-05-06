@@ -1,3 +1,21 @@
+<p>
+  Question: <%= h @question.question %>
+</p>
+<p>
+  Answer: <%= @question.answer ? 'YES' : 'NO' %>
+</p>
+<p>
+  Status: <%= @question.status.camelize %>
+</p>
+<p>
+  Expires At: <%= @question.expires_at ? @scraper.expires_at.to_s : 'N/A' %>
+</p>
+<p>
+  Flag At: <%= @question.flag_at ? @scraper.flag_at.to_s : 'N/A' %>
+</p>
+<p>
+  Scraped From: <%= @question.scraper ? link_to(@question.scraper.url, @question.scraper) : 'N/A' %>
+</p>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

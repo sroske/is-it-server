@@ -1,4 +1,7 @@
 class ScrapersController < ApplicationController
+  
+  before_filter :login_required
+  
   # GET /scrapers
   # GET /scrapers.xml
   def index

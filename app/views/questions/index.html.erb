@@ -9,7 +9,7 @@
 	<th>Question</th>
 	<th>Answer</th>
 	<th>Status</th>
-	<th>Scrape Status</th>
+	<th>Last Scrape Status</th>
 	<th>Expires</th>
 	<th>Flag After</th>
 	<td></td>
@@ -25,6 +25,7 @@
 	  <td><%= h question.scraper ? question.scraper.last_ran_status.camelize : 'N/A' %></td>
 	  <td><%= question.expires_at ? question.expires_at.strftime("%m-%d-%Y") : 'Never' %></td>
 	  <td><%= question.flag_at ? question.flag_at.strftime("%m-%d-%Y") : 'Never' %></td>
+	  <td><%= link_to 'Show', question %></td>
     <td><%= link_to 'Edit', edit_question_path(question) %></td>
     <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

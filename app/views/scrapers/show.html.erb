@@ -1,5 +1,5 @@
 <p>
-  Question: <%= h @scraper.question.question %>
+  Question: <%= link_to @scraper.question.question, question_url(@scraper.question) %>
 </p>
 <p>
   URL: <%= h @scraper.url %>
