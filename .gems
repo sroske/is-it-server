@@ -1,2 +1,2 @@
 hpricot --version '>= 0.6' --source code.whytheluckystiff.net
-mislav-will_paginate --verison '>= 2.3.8' --source gems.github.com
+mislav-will_paginate --version '>= 2.3.8' --source gems.github.com
