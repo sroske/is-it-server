@@ -1,5 +1,5 @@
 desc "Runs the scrape! method on every scraper in the database"
-task :scrape => :environment do
+task :cron => :environment do
   count = 0
   fail = 0
   success = 0
