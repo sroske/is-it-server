@@ -16,7 +16,7 @@ class Scraper < ActiveRecord::Base
     self.last_ran_at = Time.now
     begin
       doc = Hpricot(open(self.url))
-      self.last_value = ((doc/self.xpath).html.strip.downcase == 'yes')
+      self.last_value = (eval(self.xpath).strip.downcase == 'yes') rescue false
       ok = true
     rescue
       ok = false

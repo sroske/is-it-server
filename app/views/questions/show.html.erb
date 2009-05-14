@@ -8,10 +8,10 @@
   Status: <%= @question.status.camelize %>
 </p>
 <p>
-  Expires At: <%= @question.expires_at ? @scraper.expires_at.to_s : 'N/A' %>
+  Expires At: <%= @question.expires_at ? @question.expires_at.to_s : 'N/A' %>
 </p>
 <p>
-  Flag At: <%= @question.flag_at ? @scraper.flag_at.to_s : 'N/A' %>
+  Flag At: <%= @question.flag_at ? @question.flag_at.to_s : 'N/A' %>
 </p>
 <p>
   Scraped From: <%= @question.scraper ? link_to(@question.scraper.url, @question.scraper) : 'N/A' %>
