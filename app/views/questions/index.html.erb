@@ -20,7 +20,7 @@
 <% @questions.each do |question| %>
   <tr>
 	  <td><%= h question.question %></td>
-	  <td align="center"><%= eval(question.answer) ? 'YES' : 'NO' %></td>
+	  <td align="center"><%= (eval(question.answer) rescue false) ? 'YES' : 'NO' %></td>
 	  <td><%= h question.status.camelize %></td>
 	  <td><%= h question.scraper ? question.scraper.last_ran_status.camelize : 'N/A' %></td>
 	  <td><%= question.expires_at ? question.expires_at.strftime("%m-%d-%Y") : 'Never' %></td>
