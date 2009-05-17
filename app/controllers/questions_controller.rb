@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @questions }
-      format.js { render :json => @questions.collect{ |q| [{ :question => q.question, :answer => eval(q.answer) }] }.to_json }
+      format.js { render :json => @questions.collect{ |q| { :question => q.question, :answer => eval(q.answer) } }.to_json }
     end
   end
   
