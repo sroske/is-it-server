@@ -22,7 +22,7 @@ class Scraper < ActiveRecord::Base
       ok = false
     end
     if ok
-      self.question.update_attributes(:answer => self.last_value)
+      self.question.update_attributes(:answer => self.last_value.to_s)
       self.last_ran_status = Status::SUCCEEDED
     else
       self.last_ran_status = Status::FAILED

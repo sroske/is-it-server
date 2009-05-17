@@ -17,3 +17,10 @@ DONE 3. implement expires_at
 DONE 4. add flag_at (if this date is hit, it should flag it in the admin)
 DONE 5. on the admin, filters status (failed to import) and/or flag_at items and brings attention to them/brings to the top
 6. Start entering the final data set for sites
+
+
+types
+dead simple questions (just static yes/no)
+specific dates (is it christmas, or april fool's)
+or date range for yes/no
+scraped from other sites

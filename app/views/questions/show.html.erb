@@ -2,7 +2,7 @@
   Question: <%= h @question.question %>
 </p>
 <p>
-  Answer: <%= @question.answer ? 'YES' : 'NO' %>
+  Answer: <%= eval(@question.answer) ? 'YES' : 'NO' %>
 </p>
 <p>
   Status: <%= @question.status.camelize %>
